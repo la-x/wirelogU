@@ -1,0 +1,114 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: rgba(255, 255, 255, 0.199);
+    /* height: 100vh; */
+    margin-bottom: 55px;
+}
+
+#logo {
+    padding-left: 5px;
+    color: rgba(255, 236, 200, 0.822);
+}
+
+.fas {
+    color: rgba(255, 191, 73, 0.822);
+}
+
+.navbar {
+    padding: 0;
+}
+
+.container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/* .row {
+    margin: 0;
+} */
+
+/* .jumbotron {
+    background-image: url("../img/home.png");
+    background-size: 700px;
+} */
+
+/* DARK MODE */
+[data-theme="dark"] {
+    background-color: rgba(49, 49, 49, 0.781) !important;
+    color: rgb(138, 138, 138);
+}
+  
+[data-theme="dark"] .bg-light {
+    background-color: rgba(49, 49, 49, 0.781) !important;
+}
+
+[data-theme="dark"] .bg-white {
+    background-color: rgba(49, 49, 49, 0.781) !important;
+}
+
+[data-theme="dark"] .bg-black {
+    background-color: rgb(138, 138, 138) !important;
+}
+
+/* FONT SIZE */
+[data-theme2="text"] p {
+    font-size: 12px;
+}
+
+[data-theme2="text"] a {
+    font-size: 12px;
+}
+
+[data-theme2="text"] h1 {
+    font-size: 30px;
+}
+
+[data-theme2="text"] h4 {
+    font-size: 20px;
+}
+
+[data-theme2="text"] .form-group {
+    font-size: 12px;
+}
+
+/* BURGERLESS */
+[data-theme3="burger"] .navbar-toggler {
+    display: none;
+}
+
+[data-theme3="burger"] .navbar-collapse {
+    display: block;
+}
+
+[data-theme3="burger"] .navbar-nav {
+    flex-direction: row;
+    padding: 12px;
+}
+
+[data-theme3="burger"] .nav-link {
+    padding: 0;
+}
+
+[data-theme3="burger"] #logo {
+    display: none;
+}
+
+[data-theme3="burger"] .menuP {
+    display: none;
+}
+
+/* .menuPosition {
+    vertical-align: middle;
+} */
+
+/* #errorAddJob {
+    color: red;
+} */
+
+.tooltip {
+    color: red;
+}

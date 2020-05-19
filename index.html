@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>wirelog</title>
+    <!--BOOTSTRAP-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!--MAIN CSS-->
+    <link rel="stylesheet" type="text/css" href="./css/main.css">
+    <!--FONT AWESOME-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+    <!--JQUERY-->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <!--BOOTSTRAP FOR GLYPHICONS-->
+    <!-- <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet"> -->
+    <!--BOOTSTRAP-->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous" defer></script>
+    <!--POPPER-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <!--TOGGLE-->
+    <!-- <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script> -->
+    <!--MAIN JS-->
+    <script src="./js/main.js" defer></script>
+    <script src="./js/app.js" defer></script>
+    <!--MANIFEST-->
+    <link rel="manifest" href="./manifest.json" defer>
+    <link rel="icon" href="./images/icons/icon-512x512.png">
+</head>
+
+<body>
+
+<!--------------------------------NAVBAR-------------------------------->
+<div class="container-fluid">
+    <nav class="fixed-bottom">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a id="logo" class="navbar-brand" href="#">
+            <img src="./images/mainlogo.png" alt="company logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+                <li class="nav-item m-auto">
+                    <a class="nav-link" onclick="showHome()">
+                        <span class="menuP"> HOME </span> <!--&emsp;-->
+                        <i class="fas fa-home fa-lg"></i></a> <!--HOME-->
+                </li>
+                <li class="nav-item m-auto">
+                    <a class="nav-link" onclick="showJobs()">
+                        <span class="menuP"> JOBS </span>
+                        <i class="fas fa-hard-hat fa-lg"></i></a> <!--JOBS-->
+                </li>
+                <li class="nav-item m-auto">
+                    <a class="nav-link" onclick="showSettings()">
+                        <span class="menuP"> SETTINGS </span>
+                        <i class="fas fa-cogs fa-lg"></i></a> <!--SETTINGS-->
+                </li>
+                <li class="nav-item m-auto">
+                    <a class="nav-link" onclick="showLogin()">
+                        <span class="menuP"> ACCOUNT </span>
+                        <i class="fas fa-user fa-lg"></i></a> <!--LOGIN-->
+                </li>
+                <li class="nav-item m-auto">
+                    <a class="nav-link" onclick="showAdmin()">
+                        <span class="menuP"> ADMIN </span>
+                        <i class="fas fa-shield-alt"></i></a> <!--ADMIN-->
+                </li>
+            </ul>
+        </div>
+    </nav>
+    </nav>
+</div>
+
+<!--------------------------------HOME PAGE---------------------------------->
+<div id="home" class="container-fluid text-center">
+    <h1 class="display-4 text-center">HOME</h1>
+    <div class="jumbotron">
+        <!-- <h1 class="display-4">LOREM</h1> -->
+        <p class="lead">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia sint officiis, deleniti debitis molestiae eum nihil error quaerat, illum enim voluptates impedit voluptatem iusto, maxime tempora nobis laudantium esse commodi.</p>
+        <button class="btn btn-secondary btn-sm mb-2" type="button" data-toggle="collapse" data-target="#readMore" aria-expanded="false" aria-controls="readMore" onclick=collapseShow()>
+        READ MORE
+        </button>
+    </div>
+
+    <div class="collapse" id="readMore">
+        <h1 class="display-4">WHAT WE DO</h1>
+        <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet doloremque facere, earum ipsam quis odit consequatur porro ex, omnis, facilis eaque perspiciatis aliquid magni exercitationem harum dolor quibusdam. Deleniti, doloremque.</p>
+        <button class="btn btn-secondary btn-sm mb-2" type="button" data-toggle="collapse" data-target="#showMe" aria-expanded="false" aria-controls="showMe">
+        SHOW ME
+        </button>
+    </div>
+
+    <div class="collapse" id="showMe">
+        <h1 class="display-4">SCAN</h1>
+        <img src="https://placekitten.com/150/150" alt="">
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Explicabo quam ea impedit doloribus eligendi cupiditate?</p>
+        <h1 class="display-4">VIEW</h1>
+        <img src="https://placekitten.com/150/150" alt="">
+        <p>Dicta debitis ratione, natus animi delectus quod voluptates quas, eaque quidem mollitia ut est doloribus?</p>
+        <h1 class="display-4">CONTRIBUTE</h1>
+        <img src="https://placekitten.com/150/150" alt="">
+        <p>Harum quibusdam perferendis magnam deserunt adipisci inventore distinctio exercitationem repudiandae iusto sunt voluptates voluptatem consectetur consequatur</p>
+    </div>
+
+</div>
+
+<!--------------------------------JOBS---------------------------------->
+
+<div id="jobs" class="container" hidden="hidden">
+    <!--JSON AUTOCOMPLETE-->
+    <h1 class="display-4 text-center">SEARCH JOBS</h1>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6 m-auto">
+                <div class="form-group">
+                    <i class="fas fa-search"></i>
+                    <label for="searchjob">Job</label>
+                    <input type="text" id="searchJobs" name="searchjob" class="form-control form-control-lg" placeholder="Enter Job Info">
+                </div>
+                <div id="loaderSearchJobs" class="spinner-border text-warning" hidden="hidden"></div>
+                <div id="matchList"></div>
+            </div>
+        </div>
+    </div>
+
+    <!--JSON AUTOCOMPLETE-->
+    <!-- <h1 class="display-4 text-center">INFO</h1>
+    <div class="row text-center">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="card mt-4 mb-4">
+                <div class="card-body text-center">
+                    <i class="fas fa-wrench"></i>
+                    <h5 class="card-title">
+                        <h4 id="JobInfo" class="text-warning"></h4>
+                        <h4 id="JobContractor"></h4>
+                        <h4 id="JobLocation" class="text-primary"></h4>
+                    </h5>
+                    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModalCenter">VIEW
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <!--FETCH FROM LOCAL JSON FILE-->
+    <div class="text-center">
+    <button class="btn btn-secondary btn-sm" id="showAllJobs" data-toggle="tooltip" data-placement="right" title="show me every job">VIEW ALL</button>
+    </div>
+    <div id="loaderViewJobs" class="spinner-border text-warning" hidden="hidden"></div>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6 m-auto">
+                <div id="outputAllJobs"></div>
+            </div>
+        </div>
+    </div>
+
+    <!--------------------------------MODAL---------------------------------->
+    <div class="modal fade" id="viewJobInfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">
+                        <i class="fas fa-wrench"></i> </span><span class="text-warning" id="jobidOutput"></span>
+                    </h5>
+                        <!--JSON-->
+                        <!-- <p id="modal-job-comment"></p> -->
+                        <button type="button" class="close ml-auto" data-dismiss="modal" aria-label="Close" data-toggle="tooltip" data-placement="left" title="close">
+                            <div class="btn btn-outline-danger btn-sm" aria-hidden="true">&times;</div>
+                        </button>
+                </div>
+
+                <div class="modal-body">
+                    <div id="outputComments"></div>
+                </div>
+
+                                        <!--------------------------------ADD COMMENT---------------------------------->
+                    <div class="form-group">
+                        <div id="calc_totalC" hidden="hidden"></div>
+                        <div id="itemsListC" hidden="hidden"></div>
+                        <div id="loaderAddComment" class="spinner-border text-warning" hidden="hidden"></div>
+                        <form id="addCommentForm" class="px-4 py-3" method="POST" accept="php/ws.php" novalidate>
+                            <div class="form-group">
+                                <label for="comment">Comment</label>
+                                <input type="hidden" name="jobID" id="jobID" value="0">
+                                <input type="text" class="form-control" name="comment" placeholder="comment" minlength="3" required>
+                                <div class="invalid-feedback">
+                                    Please enter at least 3 characters.
+                                </div>
+                                <button type="submit" name="comment" value="send" onclick="submitComment(this)" class="btn btn-primary btn-sm mt-2" data-toggle="tooltip" data-placement="right" title="add comment!">ADD</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!--------------------------------COMMENTS---------------------------------->
+                <!-- <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="column">
+                            <div class="col-3">
+                                <p id="cardname">technician>name:</p>
+                            </div>
+                            <div class="col-3">
+                                <p id="cardSurname">technician>surname:</p>
+                            </div>
+                            <div class="col-3">
+                                <p id="cardComment">job_log>comment:</p>
+                            </div>
+                            <div class="col-3">
+                                <p id="cardDate">job_log>timestamp:</p>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                </div> -->
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<!--------------------------------SETTINGS---------------------------------->
+<div id="settings" class="container text-center" hidden="hidden">
+    <h1 class="display-4">SETTINGS</h1>
+        <div class="custom-control custom-switch my-4">
+            <input type="checkbox" class="custom-control-input" id="textSize">      
+            <label class="custom-control-label" for="textSize">
+                <i class="fas fa-text-height"></i><p>SMALL TEXT</p>
+            </label>
+        </div>
+        <div class="custom-control custom-switch my-4">
+            <input type="checkbox" class="custom-control-input" id="darkSwitch">      
+            <label class="custom-control-label" for="darkSwitch">
+                <i class="fas fa-moon"></i><p>DARK MODE</p>
+            </label>
+        </div>
+        <div class="custom-control custom-switch my-4">
+            <input type="checkbox" class="custom-control-input" id="noBurger">      
+            <label class="custom-control-label" for="noBurger">
+                <i class="fas fa-hamburger"></i><p>NO BURGER</p>
+            </label>
+        </div>
+</div>
+
+
+<!--------------------------------LOGIN---------------------------------->
+
+<div id="login" class="container" hidden="hidden">
+    <!-- <h1 class="display-4 text-center">LOGIN</h1>
+    <form class="px-4 py-3" method="POST" accept="php/ws.php">
+        <div class="form-group">
+            <input type="hidden" name="jobID" value="1">
+            <span class="glyphicon glyphicon-user"></span>
+            <label for="username">Username</label>
+            <input type="text" class="form-control" name="username" placeholder="username">
+            <span class="glyphicon glyphicon-user"></span>
+            <label for="password">Password</label>
+            <input type="text" class="form-control" name="password" placeholder="password">
+            <input type="button" name="login" value="send">
+        </div>
+    </form>
+  <div class="dropdown-divider"></div> -->
+  <!-- <a class="dropdown-item" href="#">Sign up</a> -->
+  <!-- <a class="dropdown-item" href="#">Forgot password?</a> -->
+  <h1 class="display-4 text-center">LOGIN</h1>
+  <div id="calc_totalUP" hidden="hidden"></div>
+  <div id="itemsListUP" hidden="hidden"></div>
+  <div id="loaderAddUP" class="spinner-border text-warning" hidden="hidden"></div>
+  <form id="addUPForm" class="px-4 py-3" method="POST" accept="php/ws.php" novalidate>
+      <div class="form-group">
+          <input type="hidden" name="jobID" value="1">
+          <i class="fas fa-user"></i>
+          <label for="username">Username</label>
+          <input type="text" class="form-control" name="username" placeholder="username" minlength="3" required>
+          <div class="invalid-feedback">
+            Please enter at least 3 characters.
+          </div>
+          <i class="fas fa-user"></i>
+          <label for="password">Password</label>
+          <input type="text" class="form-control" name="password" placeholder="password" minlength="8" required>
+          <div class="invalid-feedback">
+            Please enter at least 8 characters.
+          </div>
+          <button type="submit" name="login" value="send" onclick="submitLogin(this)" class="btn btn-primary btn-sm mt-2" data-toggle="tooltip" data-placement="right" title="add new login">ADD</button>
+      </div>
+  </form>
+</div>
+
+<!--------------------------------ADMIN---------------------------------->
+
+<div id="admin" class="container" hidden="hidden">
+    <h1 class="display-4 text-center">ADMIN</h1>
+  <!-- <form class="px-4 py-3">
+    <div class="form-group">
+      <label for="exampleDropdownFormEmail1">Email address</label>
+      <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com">
+    </div>
+    <div class="form-group">
+      <label for="exampleDropdownFormPassword1">Password</label>
+      <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
+    </div>
+    <submit type="submit" class="btn btn-primary">Sign in</submit>
+  </form>
+  <div class="dropdown-divider"></div>
+  <a class="dropdown-item" href="#">Sign up</a>
+  <a class="dropdown-item" href="#">Forgot password?</a> -->
+  <h6 class="display-6 text-center">ADD JOB</h6>
+  <div id="calc_totalJ"></div>
+  <div id="itemsListJ" hidden="hidden"></div>
+  <div id="loaderAddJob" class="spinner-border text-warning" hidden="hidden"></div>
+  <form id="addJobForm" class="px-4 py-3" method="POST" accept="php/ws.php" novalidate>
+      <div class="form-group">
+        <i class="fas fa-wrench"></i>
+          <label for="contractor">Contractor</label>
+          <input type="text" class="form-control" name="contractor" placeholder="contractor" minlength="3" required>
+          <div class="invalid-feedback">
+            Please enter at least 3 characters.
+          </div>
+          <i class="fas fa-map-marker-alt"></i>
+          <!-- <span class="glyphicon glyphicon-map-marker"></span> -->
+          <label for="location">Location</label>
+          <input type="text" class="form-control" name="location" placeholder="location" minlength="3" required>
+          <div class="invalid-feedback">
+            Please enter at least 3 characters.
+          </div>
+          <button type="submit" name="submit" value="submit" onclick="submitJob(this)" class="btn btn-primary btn-sm mt-2" data-toggle="tooltip" data-placement="right" title="add new job">ADD</button>
+      </div>
+  </form>
+
+  <div class="dropdown-divider"></div>
+
+  <div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6 m-auto">
+            <div class="form-group">
+                <h6 class="display-6 text-center">SEARCH TECHS</h6>
+                <i class="fas fa-search"></i>
+                <label for="searchtech">Technician</label>
+                <input type="text" id="searchTechs" name="searchtech" class="form-control form-control-lg" placeholder="Enter Tech Info">
+            </div>
+            <div id="loaderSearchTechs" class="spinner-border text-warning" hidden="hidden"></div>
+            <div id="matchListTechs"></div>
+        </div>
+    </div>
+
+    <div class="text-center">
+        <button class="btn btn-secondary btn-sm" id="showTechs" data-toggle="tooltip" data-placement="right" title="show me every technician">VIEW ALL</button>
+        </div>
+        <div id="loaderShowTechs" class="spinner-border text-warning" hidden="hidden"></div>
+    </div>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6 m-auto">
+                <div id="outputShowTechs"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="dropdown-divider"></div>
+
+    <h6 class="display-6 text-center">ADD TECH</h6>
+    <div id="calc_totalT"></div>
+    <div id="itemsListT" hidden="hidden"></div>
+    <div id="loaderAddTech" class="spinner-border text-warning" hidden="hidden"></div>
+    <form id="addTechForm" class="px-4 py-3" method="POST" accept="php/ws.php" novalidate>
+        <div class="form-group">
+            <i class="fas fa-user"></i>
+            <label for="name">Name</label>
+            <input type="text" class="form-control" name="name" placeholder="name" minlength="3" required>
+            <div class="invalid-feedback">
+                Please enter at least 3 characters.
+            </div>
+            <i class="fas fa-user"></i>
+            <label for="surname">Surname</label>
+            <input type="text" class="form-control" name="surname" placeholder="surname" minlength="3" required>
+            <div class="invalid-feedback">
+                Please enter at least 3 characters.
+            </div>
+            <i class="fas fa-envelope"></i>
+            <label for="email">Email</label>
+            <input type="email" class="form-control" name="email" placeholder="email" required> <!-- onblur="checkEmailExists(this)" -->
+            <div class="invalid-feedback">
+                Please enter correct format.
+            </div>
+            <i class="fas fa-phone-alt"></i>
+            <label for="phone">Phone</label>
+            <input type="text" class="form-control" name="phone" placeholder="phone" minlength="11" maxlength="12" required>
+            <div class="invalid-feedback">
+                Please enter 11 to 12 characters.
+            </div>
+            <i class="fas fa-users"></i>
+            <label for="position">Position</label>
+            <input type="text" class="form-control" name="position" placeholder="position" minlength="3" required>
+            <div class="invalid-feedback">
+                Please enter at least 3 characters.
+            </div>
+            <button type="submit" name="tech" value="send" onclick="submitTech(this)" class="btn btn-primary btn-sm mt-2" data-toggle="tooltip" data-placement="right" title="add new technician">ADD</button>
+            <!-- <input type="submit" name="submit" value="submit" onclick="submitTech(this)"> -->
+        </div>
+    </form>
+
+    <div class="dropdown-divider"></div>
+
+    <h6 class="display-6 text-center">USER LOG</h6>
+
+    <div class="text-center">
+        <button class="btn btn-secondary btn-sm" id="showUserLog" data-toggle="tooltip" data-placement="right" title="show me all activity">VIEW ALL</button>
+    </div>
+        <div id="loaderUserLog" class="spinner-border text-warning" hidden="hidden"></div>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6 m-auto">
+                <div id="outputUserLog"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="dropdown-divider"></div>
+
+    <div id="loaderAddImage" class="spinner-border text-warning" hidden="hidden"></div>
+    <form class="px-4 py-3" method="POST" accept="php/ws.php">
+        <div class="form-group">
+            <i class="fas fa-qrcode"></i>
+            <label for="img">Image</label>
+            <input type="hidden" name="jobID" value="1">
+            <input type="file" class="form-control" name="img" placeholder="image">
+            <submit type="button" name="qr" value="send" onclick="submitImage(this)" class="btn btn-primary btn-sm mt-2" data-toggle="tooltip" data-placement="right" title="add new image">ADD</button>
+        </div>
+    </form>
+
+</div>
+
+
+<!--------------------------------WEB SERVICE TESTING---------------------------------->
+
+<!-- <h4 class="text-center my-5" style="color: rgb(255, 167, 167);">WEB SERVICE TESTING</h4> -->
+    <!-- <form method="POST" action="php/ws.php">
+        <div class="form-group">
+            <label>JOBS > CONTRACTOR</label>
+            <input type="text" name="contractor">
+            <label>JOBS > LOCATION</label>
+            <input type="text" name="location">
+            <input type="button" name="job" value="send" onclick="submitJob(this)">
+        </div>
+    </form> -->
+
+
+    <!-- <form id="addJobForm" class="px-4 py-3" method="POST" accept="php/ws.php">
+        <div class="form-group">
+            <label for="contractor">Contractor</label>
+            <input type="text" class="form-control" name="contractor" placeholder="contractor" id="contractor">
+            <label for="location">Location</label>
+            <input type="text" class="form-control" name="location" placeholder="contractor" id="location">
+            <input type="button" name="job" value="send" onclick="submitJob(this)">
+            <div id="loadAddJob" class="spinner-border text-warning" hidden="hidden"></div>
+        </div>
+    </form>
+
+    ******************************************************************* ^^^^^^^^^^^^ UNCOMMENT -->
+
+
+    <!-- <form method="POST" action="php/ws.php">
+        <div class="form-group">
+            <label>JOB_LOGS > COMMENT</label>
+            <input type="hidden" name="jobID" value="1">
+            <input type="text" name="comment">
+            <input type="button" name="comment" value="send" onclick="submitComment(this)">
+        </form>
+    </form> -->
+
+    <!-- <form method="POST" action="php/ws.php">
+        <div class="form-group">
+            <label>LOGIN > USERNAME</label>
+            <input type="text" name="username">
+            <label>LOGIN > PASSWORD</label>
+            <input type="text" name="password">
+            <input type="button" name="login" value="send" onclick="submitLogin(this)">
+        </div>
+    </form> -->
+
+    <!-- <form method="POST" action="php/ws.php">
+        <div class="form-group">
+            <label>QR > IMG</label>
+            <input type="hidden" name="jobID" value="1">
+            <input type="text" name="img">change to file
+            <input type="button" name="qr" value="send" onclick="submitImage(this)">
+        </form>
+    </form> -->
+
+    <!-- <form method="POST" action="php/ws.php">
+        <div class="form-group">
+            <label>TECHNICIAN</label>
+            <input type="text" name="name">
+            <input type="text" name="surname">
+            <input type="email" name="email" placeholder="email" onblur="checkEmailExists(this)">
+            <div id="emailResponse" name="emailaddr"></div>
+            <input type="text" name="phone">
+            <input type="text" name="position">
+            <input type="button" name="tech" value="send" onclick="submitTech(this)">
+        </form>
+    </form> -->
+
+    <!-- <form action="GET" accept="php/ws.php">
+        <div type="text" name="jobid"></div>
+        <div type="text" name="contractor"></div>
+        <div type="text" name="location"></div>
+        <input type="submit" name="getalljob" value="send" onclick="getAllJob(this)">
+    </form> -->
+
+    <!-- <form action="">
+        <input id="inputKey" type="text" placeholder="key">
+        <input id="inputValue" type="text" placeholder="value">
+        <button id="buttonInsert" type="button">Submit</button>
+    </form>
+
+    <div id="lsOutput"></div> -->
+
+</body>
+
+</html>
