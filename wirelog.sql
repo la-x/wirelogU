@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 19, 2020 at 12:02 AM
+-- Generation Time: May 19, 2020 at 03:49 AM
 -- Server version: 5.7.26
 -- PHP Version: 7.2.18
 
@@ -131,7 +131,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   `migration` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `migrations`
@@ -141,7 +141,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (24, '2014_10_12_000000_create_users_table', 1),
 (25, '2014_10_12_100000_create_password_resets_table', 1),
 (26, '2019_08_19_000000_create_failed_jobs_table', 1),
-(27, '2020_05_18_121105_create_jobs_table', 1);
+(27, '2020_05_18_121105_create_jobs_table', 1),
+(28, '2020_05_19_030924_create_technicians_table', 2);
 
 -- --------------------------------------------------------
 
@@ -187,25 +188,27 @@ INSERT INTO `qr` (`qrID`, `img`, `jobID`) VALUES
 
 DROP TABLE IF EXISTS `technician`;
 CREATE TABLE IF NOT EXISTS `technician` (
-  `technicianID` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
-  `surname` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `phone` varchar(255) NOT NULL,
-  `position` varchar(255) NOT NULL,
+  `technicianID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `surname` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phone` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `position` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`technicianID`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `technician`
 --
 
-INSERT INTO `technician` (`technicianID`, `name`, `surname`, `email`, `phone`, `position`) VALUES
-(1, 'Luke', 'Albert', 'l.albert@wirelog.com.au', '0412332121', 'admin'),
-(2, 'Loris', 'Shumpert', 'l.shumpert@wirelog.com.au', '0487642382', 'ICA'),
-(3, 'Merlin', 'Hoberg', 'm.hoberg@wirelog.com.au', '0414742843', 'ICA'),
-(4, 'Sarah', 'Smith', 's.smith@wirelog.com.au', '0412746253', 'apprentice'),
-(5, 'Ozil', 'Zubuc', 'o.zubuc@wirelog.com.au', '0462374832', 'EC&I');
+INSERT INTO `technician` (`technicianID`, `name`, `surname`, `email`, `phone`, `position`, `created_at`, `updated_at`) VALUES
+(1, 'Luke', 'Albert', 'l.albert@wirelog.com.au', '0412332121', 'admin', '2020-05-18 17:47:41', '2020-05-18 17:47:41'),
+(2, 'Loris', 'Shumpert', 'l.shumpert@wirelog.com.au', '0487642382', 'ICA', '2020-05-18 17:48:14', '2020-05-18 17:48:14'),
+(3, 'Merlin', 'Hoberg', 'm.hoberg@wirelog.com.au', '0414742843', 'ICA', '2020-05-18 17:48:39', '2020-05-18 17:48:39'),
+(4, 'Sarah', 'Smith', 's.smith@wirelog.com.au', '0412746253', 'apprentice', '2020-05-18 17:49:17', '2020-05-18 17:49:17'),
+(5, 'Ozil', 'Zubuc', 'o.zubuc@wirelog.com.au', '0462374832', 'EC&I', '2020-05-18 17:49:39', '2020-05-18 17:49:39');
 
 -- --------------------------------------------------------
 
@@ -250,7 +253,7 @@ CREATE TABLE IF NOT EXISTS `user_log` (
   `loginID` int(11) DEFAULT NULL,
   PRIMARY KEY (`ulID`),
   KEY `loginFK` (`loginID`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=98 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=112 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user_log`
@@ -353,7 +356,21 @@ INSERT INTO `user_log` (`ulID`, `IP`, `browser`, `timestamp`, `userMethod`, `log
 (94, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36', '2020-05-18 23:54:19', 'GET', NULL),
 (95, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36', '2020-05-18 23:54:19', 'GET', NULL),
 (96, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36', '2020-05-18 23:54:19', 'GET', NULL),
-(97, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36', '2020-05-18 23:54:22', 'GET', NULL);
+(97, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36', '2020-05-18 23:54:22', 'GET', NULL),
+(98, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36', '2020-05-19 02:55:26', 'GET', NULL),
+(99, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36', '2020-05-19 02:55:26', 'GET', NULL),
+(100, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36', '2020-05-19 02:55:26', 'GET', NULL),
+(101, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36', '2020-05-19 02:55:26', 'GET', NULL),
+(102, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36', '2020-05-19 03:14:56', 'GET', NULL),
+(103, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36', '2020-05-19 03:14:56', 'GET', NULL),
+(104, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36', '2020-05-19 03:14:56', 'GET', NULL),
+(105, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36', '2020-05-19 03:14:56', 'GET', NULL),
+(106, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36', '2020-05-19 03:14:59', 'GET', NULL),
+(107, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36', '2020-05-19 03:47:44', 'GET', NULL),
+(108, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36', '2020-05-19 03:47:44', 'GET', NULL),
+(109, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36', '2020-05-19 03:47:44', 'GET', NULL),
+(110, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36', '2020-05-19 03:47:44', 'GET', NULL),
+(111, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36', '2020-05-19 03:47:46', 'GET', NULL);
 
 -- --------------------------------------------------------
 
@@ -407,6 +424,34 @@ INSERT INTO `xlogin` (`loginID`, `username`, `password`, `technicianID`) VALUES
 (1, 'lshumpert', 'Welcome1', 1),
 (2, 'lalbert', 'Welcome1', 1);
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `xtechnician`
+--
+
+DROP TABLE IF EXISTS `xtechnician`;
+CREATE TABLE IF NOT EXISTS `xtechnician` (
+  `technicianID` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `surname` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `phone` varchar(255) NOT NULL,
+  `position` varchar(255) NOT NULL,
+  PRIMARY KEY (`technicianID`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `xtechnician`
+--
+
+INSERT INTO `xtechnician` (`technicianID`, `name`, `surname`, `email`, `phone`, `position`) VALUES
+(1, 'Luke', 'Albert', 'l.albert@wirelog.com.au', '0412332121', 'admin'),
+(2, 'Loris', 'Shumpert', 'l.shumpert@wirelog.com.au', '0487642382', 'ICA'),
+(3, 'Merlin', 'Hoberg', 'm.hoberg@wirelog.com.au', '0414742843', 'ICA'),
+(4, 'Sarah', 'Smith', 's.smith@wirelog.com.au', '0412746253', 'apprentice'),
+(5, 'Ozil', 'Zubuc', 'o.zubuc@wirelog.com.au', '0462374832', 'EC&I');
+
 --
 -- Constraints for dumped tables
 --
@@ -415,7 +460,7 @@ INSERT INTO `xlogin` (`loginID`, `username`, `password`, `technicianID`) VALUES
 -- Constraints for table `job_log`
 --
 ALTER TABLE `job_log`
-  ADD CONSTRAINT `job_log_ibfk_1` FOREIGN KEY (`technicianID`) REFERENCES `technician` (`technicianID`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `job_log_ibfk_1` FOREIGN KEY (`technicianID`) REFERENCES `xtechnician` (`technicianID`) ON UPDATE CASCADE,
   ADD CONSTRAINT `job_log_ibfk_2` FOREIGN KEY (`jobID`) REFERENCES `xjob` (`jobID`) ON UPDATE CASCADE;
 
 --
@@ -434,7 +479,7 @@ ALTER TABLE `user_log`
 -- Constraints for table `xlogin`
 --
 ALTER TABLE `xlogin`
-  ADD CONSTRAINT `xlogin_ibfk_1` FOREIGN KEY (`technicianID`) REFERENCES `technician` (`technicianID`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `xlogin_ibfk_1` FOREIGN KEY (`technicianID`) REFERENCES `xtechnician` (`technicianID`) ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
