@@ -2,7 +2,7 @@ var home = document.getElementById('home');
 var jobs = document.getElementById('jobs');
 var settings = document.getElementById('settings');
 var login = document.getElementById('login');
-var admin = document.getElementById('admin');
+var techs = document.getElementById('techs');
 
 function hideNav() {
     document.getElementById('navbarSupportedContent').classList.remove("show");
@@ -13,7 +13,7 @@ function showHome() {
     jobs.setAttribute('hidden', 'hidden');
     settings.setAttribute('hidden', 'hidden');
     login.setAttribute('hidden', 'hidden');
-    admin.setAttribute('hidden', 'hidden');
+    techs.setAttribute('hidden', 'hidden');
     hideNav();    
 }
 
@@ -22,7 +22,7 @@ function showJobs() {
     jobs.removeAttribute('hidden', 'hidden');
     settings.setAttribute('hidden', 'hidden');
     login.setAttribute('hidden', 'hidden');
-    admin.setAttribute('hidden', 'hidden');
+    techs.setAttribute('hidden', 'hidden');
     hideNav();   
 }
 
@@ -31,7 +31,7 @@ function showSettings() {
     jobs.setAttribute('hidden', 'hidden');
     settings.removeAttribute('hidden', 'hidden');
     login.setAttribute('hidden', 'hidden');
-    admin.setAttribute('hidden', 'hidden');
+    techs.setAttribute('hidden', 'hidden');
     hideNav();   
 }
 
@@ -40,17 +40,17 @@ function showLogin() {
     jobs.setAttribute('hidden', 'hidden');
     settings.setAttribute('hidden', 'hidden');
     login.removeAttribute('hidden', 'hidden');
-    admin.setAttribute('hidden', 'hidden');
+    techs.setAttribute('hidden', 'hidden');
     hideNav();   
 }
 
-function showAdmin() {
-  home.setAttribute('hidden', 'hidden');
-  jobs.setAttribute('hidden', 'hidden');
-  settings.setAttribute('hidden', 'hidden');
-  login.setAttribute('hidden', 'hidden');
-  admin.removeAttribute('hidden', 'hidden');
-  hideNav();   
+function showTechnicians() {
+    home.setAttribute('hidden', 'hidden');
+    jobs.setAttribute('hidden', 'hidden');
+    settings.setAttribute('hidden', 'hidden');
+    login.setAttribute('hidden', 'hidden');
+    techs.removeAttribute('hidden', 'hidden');
+    hideNav();   
 }
 
 function collapseShow() {
@@ -466,10 +466,10 @@ function resetTheme3() {
 //============ JOB
 
 preFetchJ();
-document.getElementById('addJobForm').addEventListener('submit', 
-        function(e) { appendItem(e) });
+// document.getElementById('addJobForm').addEventListener('submit', 
+//         function(e) { appendItem(e) });
 function preFetchJ() { // axios is like fetch
-  document.getElementById('loaderAddJob').removeAttribute('hidden', 'hidden');
+  // document.getElementById('loaderAddJob').removeAttribute('hidden', 'hidden');
     fetch('php/ws.php?REQ_GET=readjob', {
         method: 'GET',
         credentials: 'include'
@@ -480,11 +480,11 @@ function preFetchJ() { // axios is like fetch
       localStorage.setItem('allJobs', strData);
       totalJobs(); 
       listJobs();
-      document.getElementById('loaderAddJob').setAttribute('hidden', 'hidden');
+      // document.getElementById('loaderAddJob').setAttribute('hidden', 'hidden');
     })
     .catch((error) => {
       // console.log(error);
-      error.JSON.parse('{"message:":"error"}')
+      // error.JSON.parse('{"message:":"error"}')
     });
 }
 function totalJobs() {
@@ -550,7 +550,7 @@ function preFetchC() { // axios is like fetch
     })
     .catch((error) => {
       // console.log(error);
-      error.JSON.parse('{"message:":"error"}')
+      // error.JSON.parse('{"message:":"error"}')
     });
 }
 function totalComments() {
@@ -621,7 +621,7 @@ function preFetchUP() { // axios is like fetch
     })
     .catch((error) => {
       // console.log(error);
-      error.JSON.parse('{"message:":"error"}')
+      // error.JSON.parse('{"message:":"error"}')
     });
 }
 function totalUP() {
@@ -699,10 +699,10 @@ function submitImage(evt) {
 // ============ TECHNICIAN
 
 preFetchT();
-document.getElementById('addTechForm').addEventListener('submit', 
-        function(e) { appendItem(e) });
+// document.getElementById('addTechForm').addEventListener('submit', 
+//         function(e) { appendItem(e) });
 function preFetchT() { // axios is like fetch
-  document.getElementById('loaderAddUP').removeAttribute('hidden', 'hidden');
+  // document.getElementById('loaderAddUP').removeAttribute('hidden', 'hidden');
     fetch('php/ws.php?REQ_GET=readtechnician', {
         method: 'GET',
         credentials: 'include'
@@ -713,11 +713,11 @@ function preFetchT() { // axios is like fetch
       localStorage.setItem('allTechs', strData);
       totalT(); 
       listT();
-      document.getElementById('loaderAddUP').setAttribute('hidden', 'hidden');
+      // document.getElementById('loaderAddUP').setAttribute('hidden', 'hidden');
     })
     .catch((error) => {
       // console.log(error);
-      error.JSON.parse('{"message:":"error"}')
+      // error.JSON.parse('{"message:":"error"}')
     });
 }
 function totalT() {
@@ -911,37 +911,37 @@ function submitTech(evt) {
   }, false);
 })();
 
-(function addJobValidate() {
-  'use strict';
+// (function addJobValidate() {
+//   'use strict';
 
-  window.addEventListener('load', function() {
-    var form = document.getElementById('addJobForm');
-    form.addEventListener('submit', function(event) {
-      if (form.checkValidity() === false) {
-        event.preventDefault();
-        event.stopPropagation();
-      }
-      form.classList.add('was-validated');
-      event.preventDefault();
-    }, false);
-  }, false);
-})();
+//   window.addEventListener('load', function() {
+//     var form = document.getElementById('addJobForm');
+//     form.addEventListener('submit', function(event) {
+//       if (form.checkValidity() === false) {
+//         event.preventDefault();
+//         event.stopPropagation();
+//       }
+//       form.classList.add('was-validated');
+//       event.preventDefault();
+//     }, false);
+//   }, false);
+// })();
 
-(function addTechValidate() {
-  'use strict';
+// (function addTechValidate() {
+//   'use strict';
 
-  window.addEventListener('load', function() {
-    var form = document.getElementById('addTechForm');
-    form.addEventListener('submit', function(event) {
-      if (form.checkValidity() === false) {
-        event.preventDefault();
-        event.stopPropagation();
-      }
-      form.classList.add('was-validated');
-      event.preventDefault();
-    }, false);
-  }, false);
-})();
+//   window.addEventListener('load', function() {
+//     var form = document.getElementById('addTechForm');
+//     form.addEventListener('submit', function(event) {
+//       if (form.checkValidity() === false) {
+//         event.preventDefault();
+//         event.stopPropagation();
+//       }
+//       form.classList.add('was-validated');
+//       event.preventDefault();
+//     }, false);
+//   }, false);
+// })();
 
 /////////// TOOLTIP
 

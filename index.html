@@ -52,7 +52,12 @@
                 <li class="nav-item m-auto">
                     <a class="nav-link" onclick="showJobs()">
                         <span class="menuP"> JOBS </span>
-                        <i class="fas fa-hard-hat fa-lg"></i></a> <!--JOBS-->
+                        <i class="fas fa-wrench"></i></a> <!--JOBS-->
+                </li>
+                <li class="nav-item m-auto">
+                    <a class="nav-link" onclick="showTechnicians()">
+                        <span class="menuP"> TECHS </span>
+                        <i class="fas fa-hard-hat fa-lg"></i></a> <!--ADMIN-->
                 </li>
                 <li class="nav-item m-auto">
                     <a class="nav-link" onclick="showSettings()">
@@ -63,11 +68,6 @@
                     <a class="nav-link" onclick="showLogin()">
                         <span class="menuP"> ACCOUNT </span>
                         <i class="fas fa-user fa-lg"></i></a> <!--LOGIN-->
-                </li>
-                <li class="nav-item m-auto">
-                    <a class="nav-link" onclick="showAdmin()">
-                        <span class="menuP"> ADMIN </span>
-                        <i class="fas fa-shield-alt"></i></a> <!--ADMIN-->
                 </li>
             </ul>
         </div>
@@ -112,13 +112,14 @@
 
 <div id="jobs" class="container" hidden="hidden">
     <!--JSON AUTOCOMPLETE-->
-    <h1 class="display-4 text-center">SEARCH JOBS</h1>
+    <h1 class="display-4 text-center">JOBS</h1>
     <div class="container mt-5">
         <div class="row">
             <div class="col-md-6 m-auto">
                 <div class="form-group">
+                    <div id="itemsListJ" hidden="hidden"></div>
                     <i class="fas fa-search"></i>
-                    <label for="searchjob">Job</label>
+                    <label for="searchjob">JOBS</label><span id="calc_totalJ" class="text-info float-right"></span>
                     <input type="text" id="searchJobs" name="searchjob" class="form-control form-control-lg" placeholder="Enter Job Info">
                 </div>
                 <div id="loaderSearchJobs" class="spinner-border text-warning" hidden="hidden"></div>
@@ -294,25 +295,10 @@
 
 <!--------------------------------ADMIN---------------------------------->
 
-<div id="admin" class="container" hidden="hidden">
-    <h1 class="display-4 text-center">ADMIN</h1>
-  <!-- <form class="px-4 py-3">
-    <div class="form-group">
-      <label for="exampleDropdownFormEmail1">Email address</label>
-      <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com">
-    </div>
-    <div class="form-group">
-      <label for="exampleDropdownFormPassword1">Password</label>
-      <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
-    </div>
-    <submit type="submit" class="btn btn-primary">Sign in</submit>
-  </form>
-  <div class="dropdown-divider"></div>
-  <a class="dropdown-item" href="#">Sign up</a>
-  <a class="dropdown-item" href="#">Forgot password?</a> -->
-  <h6 class="display-6 text-center">ADD JOB</h6>
-  <div id="calc_totalJ"></div>
-  <div id="itemsListJ" hidden="hidden"></div>
+<div id="techs" class="container" hidden="hidden">
+    <h1 class="display-4 text-center">TECHS</h1>
+
+  <!-- <h6 class="display-6 text-center">ADD JOB</h6>
   <div id="loaderAddJob" class="spinner-border text-warning" hidden="hidden"></div>
   <form id="addJobForm" class="px-4 py-3" method="POST" accept="php/ws.php" novalidate>
       <div class="form-group">
@@ -323,7 +309,6 @@
             Please enter at least 3 characters.
           </div>
           <i class="fas fa-map-marker-alt"></i>
-          <!-- <span class="glyphicon glyphicon-map-marker"></span> -->
           <label for="location">Location</label>
           <input type="text" class="form-control" name="location" placeholder="location" minlength="3" required>
           <div class="invalid-feedback">
@@ -331,17 +316,15 @@
           </div>
           <button type="submit" name="submit" value="submit" onclick="submitJob(this)" class="btn btn-primary btn-sm mt-2" data-toggle="tooltip" data-placement="right" title="add new job">ADD</button>
       </div>
-  </form>
-
-  <div class="dropdown-divider"></div>
+  </form> -->
 
   <div class="container mt-5">
     <div class="row">
         <div class="col-md-6 m-auto">
             <div class="form-group">
-                <h6 class="display-6 text-center">SEARCH TECHS</h6>
+                <div id="itemsListT" hidden="hidden"></div>
                 <i class="fas fa-search"></i>
-                <label for="searchtech">Technician</label>
+                <label for="searchtech">TECHS</label><span id="calc_totalT" class="text-info float-right"></span>
                 <input type="text" id="searchTechs" name="searchtech" class="form-control form-control-lg" placeholder="Enter Tech Info">
             </div>
             <div id="loaderSearchTechs" class="spinner-border text-warning" hidden="hidden"></div>
@@ -363,78 +346,79 @@
         </div>
     </div>
 
-    <div class="dropdown-divider"></div>
+    <div id="removedAdmin" hidden="hidden">
+        <div class="dropdown-divider"></div>
 
-    <h6 class="display-6 text-center">ADD TECH</h6>
-    <div id="calc_totalT"></div>
-    <div id="itemsListT" hidden="hidden"></div>
-    <div id="loaderAddTech" class="spinner-border text-warning" hidden="hidden"></div>
-    <form id="addTechForm" class="px-4 py-3" method="POST" accept="php/ws.php" novalidate>
-        <div class="form-group">
-            <i class="fas fa-user"></i>
-            <label for="name">Name</label>
-            <input type="text" class="form-control" name="name" placeholder="name" minlength="3" required>
-            <div class="invalid-feedback">
-                Please enter at least 3 characters.
+        <h6 class="display-6 text-center">ADD TECH</h6>
+        <!-- <div id="calc_totalT"></div> -->
+        <div id="itemsListT" hidden="hidden"></div>
+        <div id="loaderAddTech" class="spinner-border text-warning" hidden="hidden"></div>
+        <form id="addTechForm" class="px-4 py-3" method="POST" accept="php/ws.php" novalidate>
+            <div class="form-group">
+                <i class="fas fa-user"></i>
+                <label for="name">Name</label>
+                <input type="text" class="form-control" name="name" placeholder="name" minlength="3" required>
+                <div class="invalid-feedback">
+                    Please enter at least 3 characters.
+                </div>
+                <i class="fas fa-user"></i>
+                <label for="surname">Surname</label>
+                <input type="text" class="form-control" name="surname" placeholder="surname" minlength="3" required>
+                <div class="invalid-feedback">
+                    Please enter at least 3 characters.
+                </div>
+                <i class="fas fa-envelope"></i>
+                <label for="email">Email</label>
+                <input type="email" class="form-control" name="email" placeholder="email" required>
+                <div class="invalid-feedback">
+                    Please enter correct format.
+                </div>
+                <i class="fas fa-phone-alt"></i>
+                <label for="phone">Phone</label>
+                <input type="text" class="form-control" name="phone" placeholder="phone" minlength="11" maxlength="12" required>
+                <div class="invalid-feedback">
+                    Please enter 11 to 12 characters.
+                </div>
+                <i class="fas fa-users"></i>
+                <label for="position">Position</label>
+                <input type="text" class="form-control" name="position" placeholder="position" minlength="3" required>
+                <div class="invalid-feedback">
+                    Please enter at least 3 characters.
+                </div>
+                <button type="submit" name="tech" value="send" onclick="submitTech(this)" class="btn btn-primary btn-sm mt-2" data-toggle="tooltip" data-placement="right" title="add new technician">ADD</button>
             </div>
-            <i class="fas fa-user"></i>
-            <label for="surname">Surname</label>
-            <input type="text" class="form-control" name="surname" placeholder="surname" minlength="3" required>
-            <div class="invalid-feedback">
-                Please enter at least 3 characters.
-            </div>
-            <i class="fas fa-envelope"></i>
-            <label for="email">Email</label>
-            <input type="email" class="form-control" name="email" placeholder="email" required> <!-- onblur="checkEmailExists(this)" -->
-            <div class="invalid-feedback">
-                Please enter correct format.
-            </div>
-            <i class="fas fa-phone-alt"></i>
-            <label for="phone">Phone</label>
-            <input type="text" class="form-control" name="phone" placeholder="phone" minlength="11" maxlength="12" required>
-            <div class="invalid-feedback">
-                Please enter 11 to 12 characters.
-            </div>
-            <i class="fas fa-users"></i>
-            <label for="position">Position</label>
-            <input type="text" class="form-control" name="position" placeholder="position" minlength="3" required>
-            <div class="invalid-feedback">
-                Please enter at least 3 characters.
-            </div>
-            <button type="submit" name="tech" value="send" onclick="submitTech(this)" class="btn btn-primary btn-sm mt-2" data-toggle="tooltip" data-placement="right" title="add new technician">ADD</button>
-            <!-- <input type="submit" name="submit" value="submit" onclick="submitTech(this)"> -->
+        </form>
+
+        <div class="dropdown-divider"></div>
+
+        <h6 class="display-6 text-center">USER LOG</h6>
+
+        <div class="text-center">
+            <button class="btn btn-secondary btn-sm" id="showUserLog" data-toggle="tooltip" data-placement="right" title="show me all activity">VIEW ALL</button>
         </div>
-    </form>
+            <div id="loaderUserLog" class="spinner-border text-warning" hidden="hidden"></div>
 
-    <div class="dropdown-divider"></div>
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-md-6 m-auto">
+                    <div id="outputUserLog"></div>
+                </div>
+            </div>
+        </div>
 
-    <h6 class="display-6 text-center">USER LOG</h6>
+        <div class="dropdown-divider"></div>
 
-    <div class="text-center">
-        <button class="btn btn-secondary btn-sm" id="showUserLog" data-toggle="tooltip" data-placement="right" title="show me all activity">VIEW ALL</button>
+        <div id="loaderAddImage" class="spinner-border text-warning" hidden="hidden"></div>
+        <form class="px-4 py-3" method="POST" accept="php/ws.php">
+            <div class="form-group">
+                <i class="fas fa-qrcode"></i>
+                <label for="img">Image</label>
+                <input type="hidden" name="jobID" value="1">
+                <input type="file" class="form-control" name="img" placeholder="image">
+                <submit type="button" name="qr" value="send" onclick="submitImage(this)" class="btn btn-primary btn-sm mt-2" data-toggle="tooltip" data-placement="right" title="add new image">ADD</button>
+            </div>
+        </form>
     </div>
-        <div id="loaderUserLog" class="spinner-border text-warning" hidden="hidden"></div>
-
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-md-6 m-auto">
-                <div id="outputUserLog"></div>
-            </div>
-        </div>
-    </div>
-
-    <div class="dropdown-divider"></div>
-
-    <div id="loaderAddImage" class="spinner-border text-warning" hidden="hidden"></div>
-    <form class="px-4 py-3" method="POST" accept="php/ws.php">
-        <div class="form-group">
-            <i class="fas fa-qrcode"></i>
-            <label for="img">Image</label>
-            <input type="hidden" name="jobID" value="1">
-            <input type="file" class="form-control" name="img" placeholder="image">
-            <submit type="button" name="qr" value="send" onclick="submitImage(this)" class="btn btn-primary btn-sm mt-2" data-toggle="tooltip" data-placement="right" title="add new image">ADD</button>
-        </div>
-    </form>
 
 </div>
 
