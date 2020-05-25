@@ -274,20 +274,20 @@ public function readJobLogID() {
 
     // set properties
     $this->comment = $row['comment'];
-    $this->timestamp = $row['timestamp'];
+    $this->timestamp = $row['updated_at'];
     $this->jobID = $row['jobID'];
-    $this->technicianID = $row['technicianID'];
+    $this->id = $row['id'];
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 public function getJobComment($jobID) {
     // $query = 'SELECT * from job_log WHERE jobID = ? LIMIT 0,1';
     // $query = 'SELECT * from job_log WHERE jobID = :res ORDER BY timestamp ASC';
-    $sql = 'SELECT job_log.comment, job_log.timestamp, job_log.jobID, job_log.technicianID, technician.name, technician.surname, technician.phone, technician.email, technician.position
+    $sql = 'SELECT job_log.comment, job_log.updated_at, job_log.jobID, technician.name, technician.surname, technician.phone, technician.email, technician.position
                 FROM job_log
                 JOIN technician
-                ON job_log.technicianID = technician.technicianID 
-                WHERE jobID = :res ORDER BY timestamp DESC';
+                ON job_log.id = technician.id 
+                WHERE jobID = :res ORDER BY job_log.updated_at DESC';
 
     // prepare statement
     $stmt = $this->conn->prepare($sql);

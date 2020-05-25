@@ -214,7 +214,7 @@ function getThisJob(jobID) {
           output += `
           <div class="card card-body mb-1 text-center">
             <div><i class="fas fa-edit text-success"></i> ${job_log.comment}</div>
-            <div><i class="fas fa-calendar-day text-primary"></i> ${job_log.timestamp}</div>
+            <div><i class="fas fa-calendar-day text-primary"></i> ${job_log.updated_at}</div>
             <div><i class="fas fa-user text-info"></i> ${job_log.name} ${job_log.surname} <span class="text-warning">${job_log.position}</span></div>
             <div><i class="fas fa-phone-alt text-info"></i> ${job_log.phone}</div>
           </div>
