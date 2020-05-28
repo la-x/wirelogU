@@ -35,7 +35,9 @@
     //     $db->addUserLog();
     //     http_response_code(200);
     // }
-    if ($_SESSION['session_object']->session_ok() == true) {$db->addUserLog(); http_response_code(200);}
+
+    // if ($_SESSION['session_object']->session_ok() == true) {$db->addUserLog(); http_response_code(200);}
+    if ($_SESSION['session_object']->session_ok() == true) {http_response_code(200);}
 
     // if($_SERVER['REQUEST_METHOD'] === 'POST' && $_SERVER['HTTP_REFERER'] === 'http://localhost/PROJ2/' || 'http://127.0.0.1/PROJ2/') {
     if($_SERVER['SERVER_ADDR'] == '::1' || $_SERVER['SERVER_ADDR'] == '127.0.0.1') {

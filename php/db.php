@@ -92,25 +92,25 @@ class databaseConnection {
 
 
 ########################################USERLOG########################################
-public function addUserLog() {
+// public function addUserLog() {
     
-    $userIP = $_SERVER['REMOTE_ADDR'];
-    // to add request time in unix $userTime = $_SERVER['REQUEST_TIME'];
-    $userBrowser = $_SERVER['HTTP_USER_AGENT'];
-    // to add request url $userURL = $_SERVER['REQUEST_URI'];
-    $userMethod = $_SERVER['REQUEST_METHOD'];
+//     $userIP = $_SERVER['REMOTE_ADDR'];
+//     // to add request time in unix $userTime = $_SERVER['REQUEST_TIME'];
+//     $userBrowser = $_SERVER['HTTP_USER_AGENT'];
+//     // to add request url $userURL = $_SERVER['REQUEST_URI'];
+//     $userMethod = $_SERVER['REQUEST_METHOD'];
 
-    $sql = 'INSERT INTO user_log (IP, browser, userMethod)
-    VALUES (:userip, :userbrowser, :usermethod)';
+//     $sql = 'INSERT INTO user_log (IP, browser, userMethod)
+//     VALUES (:userip, :userbrowser, :usermethod)';
 
-    $stmt = $this->conn->prepare($sql);
-    $stmt->bindValue(':userip', $userIP);
-    // $stmt->bindValue(':usertimestamp', $userTime);
-    $stmt->bindValue(':userbrowser', $userBrowser);
-    // $stmt->bindValue(':userurl', $userURL);
-    $stmt->bindValue(':usermethod', $userMethod);
-    $res = $stmt->execute();
-}
+//     $stmt = $this->conn->prepare($sql);
+//     $stmt->bindValue(':userip', $userIP);
+//     // $stmt->bindValue(':usertimestamp', $userTime);
+//     $stmt->bindValue(':userbrowser', $userBrowser);
+//     // $stmt->bindValue(':userurl', $userURL);
+//     $stmt->bindValue(':usermethod', $userMethod);
+//     $res = $stmt->execute();
+// }
 
 // WORKING VIA POSTMAN
 

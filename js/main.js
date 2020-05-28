@@ -71,7 +71,7 @@ const searchJobs = async searchText => {
 
     document.getElementById('loaderSearchJobs').removeAttribute("hidden", "hidden");
     // const res = await fetch('http://localhost/proj2/frontendtesting/get_job.php');
-    const res = await fetch('http://localhost/wirelogU/php/ws.php?REQ_GET=readjob');
+    const res = await fetch('http://localhost/wirelog/php/ws.php?REQ_GET=readjob');
     const jobs = await res.json();
     document.getElementById('loaderSearchJobs').setAttribute("hidden", "hidden");
 
@@ -125,7 +125,7 @@ document.getElementById('showAllJobs').addEventListener('click', showAllJobs);
 
 function showAllJobs() {
   document.getElementById('loaderViewJobs').removeAttribute("hidden", "hidden");
-  fetch('http://localhost/wirelogU/php/ws.php?REQ_GET=readjob')
+  fetch('http://localhost/wirelog/php/ws.php?REQ_GET=readjob')
   .then((res) => res.json())
   .then((data) => {
       let output = '<h1 class="display-4 text-center">ALL JOBS</h1>'; // let variable 'output'
@@ -205,7 +205,7 @@ function showAllJobs() {
 
 
 function getThisJob(jobID) {
-  fetch('http://localhost/wirelogU/php/ws.php?REQ_GET=getjobcomment&jobID=' + jobID) // test http://localhost/PROJ2/frontendtesting/get_job.php
+  fetch('http://localhost/wirelog/php/ws.php?REQ_GET=getjobcomment&jobID=' + jobID) // test http://localhost/PROJ2/frontendtesting/get_job.php
   .then((res) => res.json())
   .then((data) => {
       let output = '<div>History<div>'; // let variable 'output'
@@ -232,7 +232,7 @@ const matchListT = document.getElementById('matchListTechs');
 
 // search jobs.json and filter it
 const searchTechs = async searchText => {
-    const url = ('http://localhost/wirelogU/php/ws.php?REQ_GET=readtechnician');
+    const url = ('http://localhost/wirelog/php/ws.php?REQ_GET=readtechnician');
     document.getElementById('loaderSearchTechs').removeAttribute("hidden", "hidden");
     // const res = await fetch('http://localhost/proj2/frontendtesting/get_job.php');
     const res = await fetch(url);
@@ -289,7 +289,7 @@ searchT.addEventListener('input', () => searchTechs(searchT.value));
 document.getElementById('showTechs').addEventListener('click', showTechs);
 
 function showTechs() {
-  const url = ('http://localhost/wirelogU/php/ws.php?REQ_GET=readtechnician');
+  const url = ('http://localhost/wirelog/php/ws.php?REQ_GET=readtechnician');
   document.getElementById('loaderShowTechs').removeAttribute("hidden", "hidden");
   fetch(url)
   .then((res) => res.json())
@@ -321,7 +321,7 @@ document.getElementById('showUserLog').addEventListener('click', showUserLog);
 
 function showUserLog() {
   document.getElementById('loaderUserLog').removeAttribute("hidden", "hidden");
-  fetch('http://localhost/wirelogU/php/ws.php?REQ_GET=readuserlog')
+  fetch('http://localhost/wirelog/php/ws.php?REQ_GET=readuserlog')
   .then((res) => res.json())
   .then((data) => {
       let output = '<h1 class="display-4 text-center">ALL LOGS</h1>'; // let variable 'output'
