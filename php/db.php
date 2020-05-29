@@ -119,7 +119,7 @@ class databaseConnection {
 public function readJob() {
 
     //create query
-    $query = 'SELECT * from job';
+    $query = 'SELECT * from job ORDER BY jobID DESC';
 
     // prepare statement
     $stmt = $this->conn->prepare($query);
@@ -274,7 +274,7 @@ public function readJobLogID() {
 
     // set properties
     $this->comment = $row['comment'];
-    $this->timestamp = $row['updated_at'];
+    $this->timestamp = $row['c_at'];
     $this->jobID = $row['jobID'];
     $this->id = $row['id'];
 }
@@ -283,11 +283,11 @@ public function readJobLogID() {
 public function getJobComment($jobID) {
     // $query = 'SELECT * from job_log WHERE jobID = ? LIMIT 0,1';
     // $query = 'SELECT * from job_log WHERE jobID = :res ORDER BY timestamp ASC';
-    $sql = 'SELECT job_log.comment, job_log.updated_at, job_log.jobID, technician.name, technician.surname, technician.phone, technician.email, technician.position
+    $sql = 'SELECT job_log.comment, job_log.c_at, job_log.jobID, technician.name, technician.surname, technician.phone, technician.email, technician.position
                 FROM job_log
                 JOIN technician
                 ON job_log.id = technician.id 
-                WHERE jobID = :res ORDER BY job_log.updated_at DESC';
+                WHERE jobID = :res ORDER BY job_log.c_at DESC';
 
     // prepare statement
     $stmt = $this->conn->prepare($sql);
@@ -553,7 +553,7 @@ public function createQR() {
 public function readTechnician() {
 
     //create query
-    $query = 'SELECT * from technician';
+    $query = 'SELECT * from technician ORDER BY technicianID DESC';
 
     // prepare statement
     $stmt = $this->conn->prepare($query);
