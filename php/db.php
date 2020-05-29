@@ -119,7 +119,7 @@ class databaseConnection {
 public function readJob() {
 
     //create query
-    $query = 'SELECT * from job ORDER BY jobID DESC';
+    $query = 'SELECT * from job ORDER BY jobID ASC';
 
     // prepare statement
     $stmt = $this->conn->prepare($query);
@@ -553,7 +553,7 @@ public function createQR() {
 public function readTechnician() {
 
     //create query
-    $query = 'SELECT * from technician ORDER BY technicianID DESC';
+    $query = 'SELECT * from technician ORDER BY technicianID ASC';
 
     // prepare statement
     $stmt = $this->conn->prepare($query);
