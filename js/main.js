@@ -203,7 +203,6 @@ function showAllJobs() {
 //   })
 // }
 
-
 function getThisJob(jobID) {
   fetch('http://localhost/wirelogU/php/ws.php?REQ_GET=getjobcomment&jobID=' + jobID) // test http://localhost/PROJ2/frontendtesting/get_job.php
   .then((res) => res.json())
