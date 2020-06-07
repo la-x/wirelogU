@@ -16,10 +16,10 @@ Visual Studio Code v1.43
 GitBash v2.26.0
 
 Download GitBash or use your preffered CLI.
-Go to https://github.com/la-x/PROJ2 and copy the link to clone with HTTPS: https://github.com/la-x/PROJ2.git
+Go to https://github.com/la-x/PROJ2 (now https://github.com/la-x/wirelogu) and copy the link to clone with HTTPS: https://github.com/la-x/PROJ2.git (now https://github.com/la-x/wirelogu)
 Open CLI and cd into desired location.
 Clone the above repository by running the following command:
-git clone https://github.com/la-x/PROJ2.git
+git clone https://github.com/la-x/PROJ2.git (now https://github.com/la-x/wirelogu)
 Download and install LAMP, XAMP or WAMP.
 Install phpmyadmin and ensure username is set to 'root' and password is set to ''.
 Create a new database called 'app' and import the sql file called 'app.sql'.
@@ -35,7 +35,7 @@ In addition, locate the user_log table within phpMyAdmin and confirm that GET's 
 
 //////////// UX2
 
-Go to https://github.com/la-x/wirelog and copY the link to clone with HTTPS: https://github.com/la-x/wirelog.git
+Go to https://github.com/la-x/wirelogu and copy the link to clone with HTTPS: https://github.com/la-x/wirelogu.git
 Place folder into WAMP/XAMP/LAMP or your preferred server directory.
 Open phpMyAdmin and create a new database titled 'wirelogdb', whilst ensuring phpMyAdmin user credentials are set to username 'root' and password ''.
 Find the SQL file titled 'wl.sql' located inside the root directory, and import the file into the 'wirelogdb' database.
