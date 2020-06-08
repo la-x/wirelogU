@@ -33,7 +33,7 @@ class sessionManager {
         if(isset($_SESSION['request_limit']) && isset($_SESSION['request_amount'])){
             if(round(time()/(60*60*24)) == round($_SESSION['request_limit'])) {
                 $_SESSION['request_amount']++;
-                if($_SESSION['request_amount'] > 1000){
+                if($_SESSION['request_amount'] > 500){
                     // echo '<br>' . 'request amount in 24hrs > 1';
                     http_response_code(501);
                     die();
