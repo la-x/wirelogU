@@ -29,17 +29,17 @@
     if(!isset($_SESSION['session_object'])) {
         $_SESSION['session_object'] = new sessionManager();
     }
-    // if ($_SESSION['session_object']->session_ok() == true &&
-    //     $_SESSION['session_object']->rate_limit() == true &&
-    //     $_SESSION['session_object']->request_limit() == true) {
-    //     $db->addUserLog();
-    //     http_response_code(200);
-    // }
+    if ($_SESSION['session_object']->session_ok() == true &&
+        // $_SESSION['session_object']->rate_limit() == true &&
+        $_SESSION['session_object']->request_limit() == true) {
+        // $db->addUserLog();
+        http_response_code(200);
+    }
 
     // if ($_SESSION['session_object']->session_ok() == true) {$db->addUserLog(); http_response_code(200);}
     if ($_SESSION['session_object']->session_ok() == true) {http_response_code(200);}
 
-    // if($_SERVER['REQUEST_METHOD'] === 'POST' && $_SERVER['HTTP_REFERER'] === 'http://localhost/PROJ2/' || 'http://127.0.0.1/PROJ2/') {
+    if($_SERVER['REQUEST_METHOD'] === 'POST' && $_SERVER['HTTP_REFERER'] === 'http://localhost/wirelogu/' || 'http://127.0.0.1/wirelogu/' ||'https://www.wirelog.com.au/') {
     if($_SERVER['SERVER_ADDR'] == '::1' || $_SERVER['SERVER_ADDR'] == '127.0.0.1') {
 
         if($_SERVER['REQUEST_METHOD'] !== 'GET' && $_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -380,6 +380,7 @@ if ($_GET['REQ_GET'] == 'readuserlog') {
 } else {
     echo json_encode(array('message' => '403 Forbidden'));
     http_response_code(403);
+}
 }
 
 

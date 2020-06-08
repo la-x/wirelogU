@@ -13,7 +13,7 @@ class sessionManager {
     public function rate_limit() {
 
         if(isset($_SESSION['rate_limit'])){
-            if(time() - $_SESSION['rate_limit'] > 1){
+            if(time() - $_SESSION['rate_limit'] > 0.5){
                 $_SESSION['rate_limit'] = time();
                 // echo '<br>' . 'rate limit > 1 second';
             } else {
